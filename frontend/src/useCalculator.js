@@ -16,7 +16,11 @@ export function useCalculator() {
     setOutput('Sending data...');
 
     try {
-      const response = await fetch('http://localhost:8000/api/add', {
+      const BASE_URL = window.location.hostname === 'localhost'
+    ?   'http://localhost:8000'       // Kehitystila (oma kone)
+    :   'https://fastapi-testi-e9sl.onrender.com/'; // Tuotanto (oikea serveri)
+    
+      const response = await fetch(`${BASE_URL}/api/add`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
