@@ -16,11 +16,7 @@ export function useCalculator() {
     setOutput('Sending data...');
 
     try {
-      const BASE_URL = window.location.hostname === 'localhost'
-    ?   'http://localhost:8000'       // Kehitystila (oma kone)
-    :   'https://fastapi-testi-e9sl.onrender.com/'; // Tuotanto (oikea serveri)
-    
-      const response = await fetch(`${BASE_URL}/api/add`, {
+      const response = await fetch('https://fastapi-testi-e9sl.onrender.com/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
