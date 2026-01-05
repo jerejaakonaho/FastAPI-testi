@@ -8,7 +8,7 @@ app = FastAPI()
 # This allows your React app to talk to this API
 origins = [
     "http://localhost:5173",
-    "http://localhost:5174",
+    "https://fast-api-testi.vercel.app/",
 ]
 
 app.add_middleware(
