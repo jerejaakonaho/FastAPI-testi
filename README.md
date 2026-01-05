@@ -5,6 +5,7 @@ A simple full stack application built to practice connecting a **React** fronten
 **LIVE DEMO**
 * **Frontend (App):** [https://fast-api-testi.vercel.app/](https://fast-api-testi.vercel.app/)
 * **Backend (API Docs):** [https://fastapi-testi-e9sl.onrender.com/docs](https://fastapi-testi-e9sl.onrender.com/docs)
+* Note: The backend is hosted on Render's free tier, so the first request may take up to a minute to wake up the server.
 
 ---
 
