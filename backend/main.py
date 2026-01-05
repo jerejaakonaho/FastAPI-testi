@@ -35,5 +35,9 @@ def read_root():
 # Sends the result back as JSON.
 @app.post("/api/add")
 def add_data(data: InputData):
+    """
+    Receives two numbers from the fronend, 
+    adds them and returns the result.
+    """
     result = data.input1 + data.input2
     return {"result": result}
