@@ -2,36 +2,38 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+# Start the app
 app = FastAPI()
 
-# --- CORS SETUP ---
-# This allows your React app to talk to this API
+# Tell the server who is allowed to talk to it (Our frontend)
 origins = [
-    "http://localhost:5173",
-    "https://fast-api-testi.vercel.app",
+    "http://localhost:5173",              # Local React development
+    "https://fast-api-testi.vercel.app",  # The live website on Vercel
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=origins,  # Only allow the sites listed above
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["*"],    # Allow all types of requests (GET, POST, etc.)
     allow_headers=["*"],
 )
 
-# --- DATA MODEL ---
-# This defines the data we expect from React
+# This ensures that the data sent from React contains exactly
+# two numbers ('int'). If data is wrong, it rejects the request automatically.
 class InputData(BaseModel):
     input1: int
     input2: int
 
-# --- ENDPOINTS ---
+# Simple check to see if the server is online.
 @app.get("/")
 def read_root():
     return {"message": "FastAPI is running!"}
 
+# Accepts data (validated by InputData above).
+# Adds the numbers together.
+# Sends the result back as JSON.
 @app.post("/api/add")
 def add_data(data: InputData):
-    # Logic: Combine the two inputs
     result = data.input1 + data.input2
     return {"result": result}

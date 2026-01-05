@@ -1,5 +1,5 @@
 import styles from './App.module.css';
-import { useCalculator } from './useCalculator'; // Import your new hook
+import { useCalculator } from './useCalculator';
 
 function App() {
   // Pull the logic out of the hook
