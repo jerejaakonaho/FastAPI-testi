@@ -16,7 +16,7 @@ export function useCalculator() {
     setOutput('Sending data...');
 
     try {
-      const response = await fetch('https://fastapi-testi-e9sl.onrender.com/', {
+      const response = await fetch('https://fastapi-testi-e9sl.onrender.com/api/add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
